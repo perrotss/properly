@@ -1,0 +1,40 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag("nftea_logo.jpg")%>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "Create", new_nft_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Explore", nfts_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item dropdown">
+        <%= image_tag "https://lumiere-a.akamaihd.net/v1/images/character_themuppets_kermit_b77a431b.jpeg?region=0%2C0%2C450%2C450", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "My Collections", user_lists_path(current_user), class: "dropdown-item" %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+        <% else %>
+          <li class="nav-item">
+            <%# <%= link_to "Learn", new_user_session_path, class: "nav-item" %>
+            <%= link_to "Sign up", new_user_session_path, class:"btn btn-outline-primary" %>
+            <%= link_to "Login", new_user_session_path, class:"btn btn-primary" %>
+          </li>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
