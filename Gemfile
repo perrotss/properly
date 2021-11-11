@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 #devise for user model
 gem 'devise'
 
+gem 'pundit'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
