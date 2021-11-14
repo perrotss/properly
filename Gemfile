@@ -23,7 +23,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 #devise for user model
 gem 'devise'
-
+gem 'autoprefixer-rails'
+gem 'font-awesome-sass', '~> 5.6.1'
+gem 'simple_form'
 gem 'pundit'
 
 # Use Active Storage variant
