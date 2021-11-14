@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_203318) do
+ActiveRecord::Schema.define(version: 2021_11_14_003804) do
+
+  create_table "properties", force: :cascade do |t|
+    t.string "address"
+    t.integer "purchase_price"
+    t.date "purchase_date"
+    t.integer "property_taxes"
+    t.integer "building_age"
+    t.integer "units"
+    t.string "city"
+    t.text "description"
+    t.integer "renter_id", null: false
+    t.integer "owner_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_properties_on_owner_id"
+    t.index ["renter_id"], name: "index_properties_on_renter_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,4 +47,6 @@ ActiveRecord::Schema.define(version: 2021_11_11_203318) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "properties", "users", column: "owner_id"
+  add_foreign_key "properties", "users", column: "renter_id"
 end
