@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2021_11_14_010231) do
-
-ActiveRecord::Schema.define(version: 2021_11_14_003804) do
-
 
   create_table "properties", force: :cascade do |t|
     t.string "address"
@@ -52,7 +48,6 @@ ActiveRecord::Schema.define(version: 2021_11_14_003804) do
     t.index ["renter_id"], name: "index_units_on_renter_id"
   end
 
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -73,9 +68,7 @@ ActiveRecord::Schema.define(version: 2021_11_14_003804) do
 
   add_foreign_key "properties", "users", column: "owner_id"
   add_foreign_key "properties", "users", column: "renter_id"
-
   add_foreign_key "units", "properties"
   add_foreign_key "units", "users", column: "owner_id"
   add_foreign_key "units", "users", column: "renter_id"
-
 end
