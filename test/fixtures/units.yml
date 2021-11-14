@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unit: 1
+  renewal_date: 2021-11-13
+  payment_method: MyString
+  rent_amount_cents: 1
+  payment_date: 1
+  square_meters: 1.5
+  bathrooms: 1.5
+  bedrooms: 
+  owner: one
+  renter: one
+
+two:
+  unit: 1
+  renewal_date: 2021-11-13
+  payment_method: MyString
+  rent_amount_cents: 1
+  payment_date: 1
+  square_meters: 1.5
+  bathrooms: 1.5
+  bedrooms: 
+  owner: two
+  renter: two
