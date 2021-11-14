@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema.define(version: 2021_11_14_010231) do
+
 ActiveRecord::Schema.define(version: 2021_11_14_003804) do
+
 
   create_table "properties", force: :cascade do |t|
     t.string "address"
@@ -28,6 +32,26 @@ ActiveRecord::Schema.define(version: 2021_11_14_003804) do
     t.index ["owner_id"], name: "index_properties_on_owner_id"
     t.index ["renter_id"], name: "index_properties_on_renter_id"
   end
+
+  create_table "units", force: :cascade do |t|
+    t.integer "unit"
+    t.date "renewal_date"
+    t.string "payment_method"
+    t.integer "rent_amount_cents"
+    t.integer "payment_date"
+    t.float "square_meters"
+    t.float "bathrooms"
+    t.float "bedrooms"
+    t.integer "owner_id"
+    t.integer "renter_id"
+    t.integer "property_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_units_on_owner_id"
+    t.index ["property_id"], name: "index_units_on_property_id"
+    t.index ["renter_id"], name: "index_units_on_renter_id"
+  end
+
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -49,4 +73,9 @@ ActiveRecord::Schema.define(version: 2021_11_14_003804) do
 
   add_foreign_key "properties", "users", column: "owner_id"
   add_foreign_key "properties", "users", column: "renter_id"
+
+  add_foreign_key "units", "properties"
+  add_foreign_key "units", "users", column: "owner_id"
+  add_foreign_key "units", "users", column: "renter_id"
+
 end
