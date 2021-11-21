@@ -8,7 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 import 'bootstrap';
-import { window } from "../components/home.js"
+import { navbarlinksActive } from "../components/navbar.js";
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -18,5 +18,5 @@ import { window } from "../components/home.js"
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 document.addEventListener("turbolinks:load", () => {
-  window();
+  navbarlinksActive();
 });
