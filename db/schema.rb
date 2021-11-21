@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_14_010231) do
+ActiveRecord::Schema.define(version: 2021_11_21_004926) do
 
   create_table "properties", force: :cascade do |t|
     t.string "address"
     t.integer "purchase_price"
     t.date "purchase_date"
     t.integer "property_taxes"
-    t.integer "building_age"
     t.integer "units"
     t.string "city"
     t.text "description"
@@ -25,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_11_14_010231) do
     t.integer "owner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "property_age"
     t.index ["owner_id"], name: "index_properties_on_owner_id"
     t.index ["renter_id"], name: "index_properties_on_renter_id"
   end
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_11_14_010231) do
     t.integer "property_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.binary "lease"
     t.index ["owner_id"], name: "index_units_on_owner_id"
     t.index ["property_id"], name: "index_units_on_property_id"
     t.index ["renter_id"], name: "index_units_on_renter_id"

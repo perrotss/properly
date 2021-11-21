@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [ :index, :show, :edit, :update, :create]
 
-  resources :buildings, except: [:show] do
+  resources :properties, except: [:show] do
     resources :units, only: [:show, :new, :create, :edit, :update]
   end
 end
